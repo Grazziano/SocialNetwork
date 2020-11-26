@@ -105,6 +105,43 @@ if (isset($_POST['register_button'])) {
             $username = $username . "_" . $i;
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'") ;         
         }
+
+        # Profile picture assignment
+        $rand = rand(1, 16); # Random number between 1 and 16
+        if ($rand == 1) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_alizarin.png";
+        } else if ($rand == 2) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_amethyst.png";
+        } else if ($rand == 3) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_belize_hole.png";
+        } else if ($rand == 4) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_carrot.png";
+        } else if ($rand == 5) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
+        } else if ($rand == 6) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
+        } else if ($rand == 7) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_green_sea.png";
+        } else if ($rand == 8) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_nephritis.png";
+        } else if ($rand == 9) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_pete_river.png";
+        } else if ($rand == 10) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_pomegranate.png";
+        } else if ($rand == 11) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_pumpkin.png";
+        } else if ($rand == 12) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_red.png";
+        } else if ($rand == 13) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_sun_flower.png";
+        } else if ($rand == 14) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_turqoise.png";
+        } else if ($rand == 15) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_wet_asphalt.png";
+        } else if ($rand == 16) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_wisteria.png";
+        }
+        
     }
 }
 ?>
