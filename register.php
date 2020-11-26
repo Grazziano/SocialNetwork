@@ -34,13 +34,11 @@ if (isset($_POST['register_button'])) {
     # email
     $em = strip_tags($_POST['reg_email']); # Remove html tags
     $em = str_replace(' ', '', $em); # Remove spaces
-    $em = ucfirst(strtolower($em)); # Uppercase first letter
     $_SESSION['reg_email'] = $em; # Stores email into session variable
 
     # email 2
     $em2 = strip_tags($_POST['reg_email2']); # Remove html tags
     $em2 = str_replace(' ', '', $em2); # Remove spaces
-    $em2 = ucfirst(strtolower($em2)); # Uppercase first letter
     $_SESSION['reg_email2'] = $em2; # Stores email2 into session variable
 
     # Password
@@ -141,6 +139,8 @@ if (isset($_POST['register_button'])) {
         } else if ($rand == 16) {
             $profile_pic = "assets/images/profile_pics/defaults/head_wisteria.png";
         }
+
+        $query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
         
     }
 }
@@ -164,7 +164,6 @@ if (isset($_POST['register_button'])) {
         <?php if (in_array("Your last name must be between 2 and 25 characters", $error_array)){ echo "Your last name must be between 2 and 25 characters<br>"; } ?>
         <input type="email" name="reg_email" placeholder="E-mail" value="<?php if(isset($_SESSION['reg_email'])){ echo $_SESSION['reg_email']; } ?>" required>
         <br>
-        <?php if (in_array("Email already in use", $error_array)) echo "Email already in use"; ?>
         <input type="email" name="reg_email2" placeholder="Confirm E-mail" value="<?php if(isset($_SESSION['reg_email2'])){ echo $_SESSION['reg_email2']; } ?>" required>
         <br>
         <?php
