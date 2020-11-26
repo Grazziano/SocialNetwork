@@ -64,6 +64,8 @@ if (isset($_POST['register_button'])) {
             if ($num_rows > 0) {
                 array_push($error_array, "Email already in use");
             }
+        } else {
+            array_push($error_array, "Invalid email format");
         }
     } else {
         array_push($error_array, "Emails dont't match");
@@ -74,7 +76,7 @@ if (isset($_POST['register_button'])) {
     }
 
     if (strlen($lname) > 25 || strlen($lname) < 2) {
-        array_push($error_array, "Your first name must be between 2 and 25 characters");
+        array_push($error_array, "Your last name must be between 2 and 25 characters");
     }
 
     if ($password != $password2) {
@@ -103,16 +105,29 @@ if (isset($_POST['register_button'])) {
     <form action="register.php" method="post">
         <input type="text" name="reg_fname" placeholder="First Name" value="<?php if(isset($_SESSION['reg_fname'])){ echo $_SESSION['reg_fname']; } ?>" required>
         <br>
+        <?php if (in_array("Your first name must be between 2 and 25 characters", $error_array)) echo "Your first name must be between 2 and 25 characters<br>"; ?>
         <input type="text" name="reg_lname" placeholder="Last Name" value="<?php if(isset($_SESSION['reg_lname'])){ echo $_SESSION['reg_lname']; } ?>" required>
         <br>
+        <?php if (in_array("Your last name must be between 2 and 25 characters", $error_array)){ echo "Your last name must be between 2 and 25 characters<br>"; } ?>
         <input type="email" name="reg_email" placeholder="E-mail" value="<?php if(isset($_SESSION['reg_email'])){ echo $_SESSION['reg_email']; } ?>" required>
         <br>
+        <?php if (in_array("Email already in use", $error_array)) echo "Email already in use"; ?>
         <input type="email" name="reg_email2" placeholder="Confirm E-mail" value="<?php if(isset($_SESSION['reg_email2'])){ echo $_SESSION['reg_email2']; } ?>" required>
         <br>
+        <?php
+        if (in_array("Email already in use", $error_array)) echo "Email already in use<br>";
+        else if (in_array("Invalid email format", $error_array)) echo "Invalid email format<br>";
+        else if (in_array("Emails dont't match", $error_array)) echo "Emails dont't match<br>";
+        ?>
         <input type="password" name="reg_password" placeholder="Password" required>
         <br>
         <input type="password" name="reg_password2" placeholder="Confirm Password" required>
         <br>
+        <?php
+        if (in_array("Your password can only contain english characters of numbers", $error_array)) echo "Your password can only contain english characters of numbers<br>";
+        else if (in_array("Your password must be between 5 and 30 characters", $error_array)) echo "Your password must be between 5 and 30 characters<br>";
+        else if (in_array("Your passwords do not match", $error_array)) echo "Your passwords do not match<br>";
+        ?>
         <input type="submit" name="register_button" value="Register">
     </form>
 </body>
