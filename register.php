@@ -10,6 +10,7 @@ require 'includes/form_handlers/login_handler.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to SwirlFeed!</title>
+    <link rel="stylesheet" href="assets/css/register_style.css">
 </head>
 
 <body>
