@@ -11,6 +11,11 @@ class User
         $this->user = mysqli_fetch_array($user_details_query);
     }
 
+    public function getUsername()
+    {
+        return $this->user['username'];
+    }
+
     public function getFirstAndLastName()
     {
         $username = $this->user['username'];
