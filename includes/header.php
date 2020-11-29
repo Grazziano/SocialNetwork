@@ -34,7 +34,7 @@ if (isset($_SESSION['username'])) {
             <a href="index.php">SwirlFeed</a>
         </div>
         <nav>
-            <a href=""><?php echo $user['first_name'] ?></i></a>
+            <a href="<?php echo $userLoggedIn ?>"><?php echo $user['first_name'] ?></i></a>
             <a href="index.php"><i class="fas fa-home fa-lg"></i></a>
             <a href=""><i class="fas fa-envelope fa-lg"></i></a>
             <a href=""><i class="fas fa-bell fa-lg"></i></a>
