@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Nov-2020 às 22:15
+-- Tempo de geração: 30-Nov-2020 às 00:24
 -- Versão do servidor: 10.4.16-MariaDB
 -- versão do PHP: 7.4.12
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `social_network`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `username` varchar(60) NOT NULL,
+  `post_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `body` text NOT NULL,
+  `added_by` varchar(60) NOT NULL,
+  `user_to` varchar(60) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `user_closed` varchar(3) NOT NULL,
+  `deleted` varchar(3) NOT NULL,
+  `likes` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `post_comments`
+--
+
+CREATE TABLE `post_comments` (
+  `id` int(11) NOT NULL,
+  `post_body` text NOT NULL,
+  `posted_by` varchar(60) NOT NULL,
+  `posted_to` varchar(60) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `removed` varchar(3) NOT NULL,
+  `post_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -57,6 +102,24 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 --
 
 --
+-- Índices para tabela `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `post_comments`
+--
+ALTER TABLE `post_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
@@ -65,6 +128,24 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `post_comments`
+--
+ALTER TABLE `post_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `users`
