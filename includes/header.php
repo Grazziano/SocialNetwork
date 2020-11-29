@@ -42,3 +42,5 @@ if (isset($_SESSION['username'])) {
             <a href=""><i class="fas fa-cog fa-lg"></i></a>
         </nav>
     </div>
+
+    <div class="wrapper">
