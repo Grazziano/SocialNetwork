@@ -16,6 +16,9 @@ class Post
         $body = mysqli_real_escape_string($this->con, $body);
         $check_empty = preg_replace('/\s+/', '', $body); # Delete all spaces
 
+        $body = str_replace('\r\n', '\n', $body);
+        $body = nl2br($body);
+
         if ($check_empty != "") {
             # Current date and time
             $date_added = date("Y-m-d H:i:s");
