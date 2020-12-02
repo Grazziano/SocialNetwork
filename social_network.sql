@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Dez-2020 às 03:49
--- Versão do servidor: 10.4.11-MariaDB
--- versão do PHP: 7.4.3
+-- Tempo de geração: 02-Dez-2020 às 02:33
+-- Versão do servidor: 10.4.16-MariaDB
+-- versão do PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -60,7 +59,17 @@ INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_cl
 (2, 'Olá eu sou a Jill e este é o meu primeiro post nessa rede social.', 'jill_valentine', 'none', '2020-11-30 16:07:19', 'no', 'no', 0),
 (3, 'Resident Evil é um dos melhores survivor horrors já feito.\nQuem concorda?\nDeixa o like.', 'jill_valentine', 'none', '2020-11-30 16:46:48', 'no', 'no', 0),
 (4, 'Hi there guys!', 'jill_valentine', 'none', '2020-11-30 16:52:15', 'no', 'no', 0),
-(5, 'Boa noite a todos!', 'grazziano_fagundes', 'none', '2020-11-30 23:47:27', 'no', 'no', 0);
+(5, 'Boa noite a todos!', 'grazziano_fagundes', 'none', '2020-11-30 23:47:27', 'no', 'no', 0),
+(6, 'Olá. como estão todos?\nEu sou novo nessa rede social.', 'grazziano_fagundes_1', 'none', '2020-12-01 22:13:07', 'no', 'no', 0),
+(7, 'Olá, eu sou a Lara.\nJá conferiram o meu novo jogo?', 'lara_croft', 'none', '2020-12-01 22:14:04', 'no', 'no', 0),
+(8, 'Quem aqui gosta de games?', 'grazziano_fagundes', 'none', '2020-12-01 22:14:37', 'no', 'no', 0),
+(9, 'Boa noite a todos!', 'jill_valentine', 'none', '2020-12-01 22:15:11', 'no', 'no', 0),
+(10, 'Promoção de games na Steam.\nAproveitem!!!', 'lara_croft', 'none', '2020-12-01 22:16:15', 'no', 'no', 0),
+(11, 'Essa rede social é muito legal!', 'lara_croft', 'none', '2020-12-01 22:16:57', 'no', 'no', 0),
+(12, 'Quem aqui curte rock?\nDá uma curtida.', 'grazziano_fagundes_1', 'none', '2020-12-01 22:17:58', 'no', 'no', 0),
+(13, 'Eu sou rockeiro!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:04', 'no', 'no', 0),
+(14, 'Quem é programador deixa o like!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:32', 'no', 'no', 0),
+(15, 'Quem aqui é do RS?', 'grazziano_fagundes', 'none', '2020-12-01 22:28:11', 'no', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -104,10 +113,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
-(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 2, 0, 'no', ','),
-(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 0, 0, 'no', ','),
-(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 0, 0, 'no', ','),
-(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 3, 0, 'no', ',');
+(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 6, 0, 'no', ','),
+(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 2, 0, 'no', ','),
+(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 3, 0, 'no', ','),
+(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 4, 0, 'no', ',');
 
 --
 -- Índices para tabelas despejadas
@@ -151,7 +160,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `post_comments`

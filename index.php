@@ -35,15 +35,17 @@ if (isset($_POST['post'])) {
     </form>
 
     <div class="posts_area"></div>
-    <img src="assets/images/icons/loading.gif" alt="">
+    <img id="loading" src="assets/images/icons/loading.gif">
 
 </div>
 <script>
     var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
     $(document).ready(function() {
+
         $('#loading').show();
-        // Original ajax request for loading first posts
+
+        //Original ajax request for loading first posts 
         $.ajax({
             url: "includes/handlers/ajax_load_posts.php",
             type: "POST",
@@ -57,12 +59,13 @@ if (isset($_POST['post'])) {
         });
 
         $(window).scroll(function() {
-            var height = $('.posts_area').height(); // DIV containing posts
+            var height = $('.posts_area').height(); //Div containing posts
             var scroll_top = $(this).scrollTop();
             var page = $('.posts_area').find('.nextPage').val();
             var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 
             if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
+                $('#loading').show();
 
                 var ajaxReq = $.ajax({
                     url: "includes/handlers/ajax_load_posts.php",
@@ -71,16 +74,16 @@ if (isset($_POST['post'])) {
                     cache: false,
 
                     success: function(response) {
-                        $('.posts_area').find('.nextPage').remove(); // Remove currernt .nextPage
-                        $('.posts_area').find('.noMorePosts').remove(); // Remove currernt .noMorePosts
+                        $('.posts_area').find('.nextPage').remove(); //Removes current .nextpage 
+                        $('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage 
 
                         $('#loading').hide();
                         $('.posts_area').append(response);
                     }
                 });
-            } // End if
+            } //End if 
             return false;
-        }); // End (window).scroll(function())
+        }); //End (window).scroll(function())
     });
 </script>
 
