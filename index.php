@@ -78,8 +78,9 @@ if (isset($_POST['post'])) {
                         $('.posts_area').append(response);
                     }
                 });
-            }
-        });
+            } // End if
+            return false;
+        }); // End (window).scroll(function())
     });
 </script>
 
