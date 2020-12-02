@@ -34,11 +34,7 @@ if (isset($_POST['post'])) {
         <input type="submit" name="post" id="post_button" value="Post">
     </form>
 
-    <?php
-    $post = new Post($con, $userLoggedIn);
-    $post->loadPostsFriends();
-    ?>
-
+    <div class="posts_area"></div>
     <img src="assets/images/icons/loading.gif" alt="">
 
 </div>
@@ -53,7 +49,37 @@ if (isset($_POST['post'])) {
             type: "POST",
             data: "page=1&userLoggedIn=" + userLoggedIn,
             cache: false,
-        })
+
+            success: function(data) {
+                $('#loading').hide();
+                $('.posts_area').html(data);
+            }
+        });
+
+        $(window).scroll(function() {
+            var height = $('.posts_area').height(); // DIV containing posts
+            var scroll_top = $(this).scrollTop();
+            var page = $('.posts_area').find('.nextPage').val();
+            var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+            if ((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
+
+                var ajaxReq = $.ajax({
+                    url: "includes/handlers/ajax_load_posts.php",
+                    type: "POST",
+                    data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+                    cache: false,
+
+                    success: function(response) {
+                        $('.posts_area').find('.nextPage').remove(); // Remove currernt .nextPage
+                        $('.posts_area').find('.noMorePosts').remove(); // Remove currernt .noMorePosts
+
+                        $('#loading').hide();
+                        $('.posts_area').append(response);
+                    }
+                });
+            }
+        });
     });
 </script>
 
