@@ -9,6 +9,14 @@
 </head>
 
 <body>
+
+    <style>
+        * {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
     <?php
     require 'config/config.php';
     include("includes/classes/User.php");
