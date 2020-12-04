@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Dez-2020 às 02:33
--- Versão do servidor: 10.4.16-MariaDB
--- versão do PHP: 7.4.12
+-- Tempo de geração: 04-Dez-2020 às 01:04
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `social_network`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `post_body` text NOT NULL,
+  `posted_by` varchar(60) NOT NULL,
+  `posted_to` varchar(60) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `removed` varchar(3) NOT NULL,
+  `post_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_body`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`) VALUES
+(1, 'Hi!', 'grazziano_fagundes', 'jill_valentine', '2020-12-03 21:02:24', 'no', 4),
+(2, 'Verdade, também estou gostando muito!', 'grazziano_fagundes', 'lara_croft', '2020-12-03 21:03:34', 'no', 11);
 
 -- --------------------------------------------------------
 
@@ -74,22 +99,6 @@ INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_cl
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `post_comments`
---
-
-CREATE TABLE `post_comments` (
-  `id` int(11) NOT NULL,
-  `post_body` text NOT NULL,
-  `posted_by` varchar(60) NOT NULL,
-  `posted_to` varchar(60) NOT NULL,
-  `date_added` datetime NOT NULL,
-  `removed` varchar(3) NOT NULL,
-  `post_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `users`
 --
 
@@ -113,14 +122,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
-(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 6, 0, 'no', ','),
+(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 6, 0, 'no', ',jill_valentine,lara_croft,'),
 (2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 2, 0, 'no', ','),
-(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 3, 0, 'no', ','),
-(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 4, 0, 'no', ',');
+(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 3, 0, 'no', ',grazziano_fagundes,'),
+(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 4, 0, 'no', ',grazziano_fagundes,');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `likes`
@@ -135,12 +150,6 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `post_comments`
---
-ALTER TABLE `post_comments`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
@@ -149,6 +158,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `likes`
@@ -161,12 +176,6 @@ ALTER TABLE `likes`
 --
 ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT de tabela `post_comments`
---
-ALTER TABLE `post_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `users`
