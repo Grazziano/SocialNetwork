@@ -143,6 +143,8 @@ if (isset($_SESSION['username'])) {
 
 
         }
+    } else {
+        echo "<center><br><br>No comments to show!</center>";
     }
     ?>
 
