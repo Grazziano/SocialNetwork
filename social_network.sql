@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Dez-2020 às 01:04
+-- Tempo de geração: 20-Dez-2020 às 00:58
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -44,7 +44,13 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`id`, `post_body`, `posted_by`, `posted_to`, `date_added`, `removed`, `post_id`) VALUES
 (1, 'Hi!', 'grazziano_fagundes', 'jill_valentine', '2020-12-03 21:02:24', 'no', 4),
-(2, 'Verdade, também estou gostando muito!', 'grazziano_fagundes', 'lara_croft', '2020-12-03 21:03:34', 'no', 11);
+(2, 'Verdade, também estou gostando muito!', 'grazziano_fagundes', 'lara_croft', '2020-12-03 21:03:34', 'no', 11),
+(3, 'Como você está?', 'grazziano_fagundes', 'lara_croft', '2020-12-03 21:49:24', 'no', 11),
+(4, 'Boa noite Dill.\r\nComo vai?', 'grazziano_fagundes', 'jill_valentine', '2020-12-19 20:49:45', 'no', 9),
+(5, 'Eu já comprei vários jogos.', 'grazziano_fagundes', 'lara_croft', '2020-12-19 20:51:24', 'no', 10),
+(6, 'Eu não sou do RS, mas sempre tive vontade de conhecer.', 'lara_croft', 'grazziano_fagundes', '2020-12-19 20:52:54', 'no', 15),
+(7, 'Eu amo rock!', 'lara_croft', 'grazziano_fagundes', '2020-12-19 20:53:11', 'no', 13),
+(8, 'Eu também amo rock!', 'jill_valentine', 'grazziano_fagundes', '2020-12-19 20:53:54', 'no', 13);
 
 -- --------------------------------------------------------
 
@@ -163,7 +169,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `likes`
