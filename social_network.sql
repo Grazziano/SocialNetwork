@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Dez-2020 às 04:24
+-- Tempo de geração: 23-Dez-2020 às 23:54
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -55,6 +55,25 @@ INSERT INTO `comments` (`id`, `post_body`, `posted_by`, `posted_to`, `date_added
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `friend_request`
+--
+
+CREATE TABLE `friend_request` (
+  `id` int(11) NOT NULL,
+  `user_to` varchar(50) NOT NULL,
+  `user_from` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `friend_request`
+--
+
+INSERT INTO `friend_request` (`id`, `user_to`, `user_from`) VALUES
+(1, 'grazziano_fagundes', 'bart_simpson');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `likes`
 --
 
@@ -71,7 +90,10 @@ CREATE TABLE `likes` (
 INSERT INTO `likes` (`id`, `username`, `post_id`) VALUES
 (1, 'grazziano_fagundes', 9),
 (2, 'grazziano_fagundes', 4),
-(3, 'grazziano_fagundes', 11);
+(3, 'grazziano_fagundes', 11),
+(7, 'grazziano_fagundes', 15),
+(8, 'grazziano_fagundes', 13),
+(9, 'grazziano_fagundes', 14);
 
 -- --------------------------------------------------------
 
@@ -107,9 +129,11 @@ INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_cl
 (10, 'Promoção de games na Steam.\nAproveitem!!!', 'lara_croft', 'none', '2020-12-01 22:16:15', 'no', 'no', 0),
 (11, 'Essa rede social é muito legal!', 'lara_croft', 'none', '2020-12-01 22:16:57', 'no', 'no', 1),
 (12, 'Quem aqui curte rock?\nDá uma curtida.', 'grazziano_fagundes_1', 'none', '2020-12-01 22:17:58', 'no', 'no', 0),
-(13, 'Eu sou rockeiro!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:04', 'no', 'no', 0),
-(14, 'Quem é programador deixa o like!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:32', 'no', 'no', 0),
-(15, 'Quem aqui é do RS?', 'grazziano_fagundes', 'none', '2020-12-01 22:28:11', 'no', 'no', 0);
+(13, 'Eu sou rockeiro!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:04', 'no', 'no', 1),
+(14, 'Quem é programador deixa o like!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:32', 'no', 'no', 1),
+(15, 'Quem aqui é do RS?', 'grazziano_fagundes', 'none', '2020-12-01 22:28:11', 'no', 'no', 1),
+(16, 'Olá sou nova aqui!', 'claire_redfield', 'none', '2020-12-22 21:42:53', 'no', 'no', 0),
+(17, 'Cheguei!!!', 'bart_simpson', 'none', '2020-12-23 19:49:17', 'no', 'no', 0);
 
 -- --------------------------------------------------------
 
@@ -137,10 +161,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
-(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 6, 1, 'no', ',jill_valentine,lara_croft,'),
-(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 2, 0, 'no', ','),
-(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 3, 2, 'no', ',grazziano_fagundes,'),
-(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 4, 4, 'no', ',grazziano_fagundes,');
+(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wisteria.png', 6, 4, 'no', ',jill_valentine,lara_croft,grazziano_fagundes_1'),
+(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 2, 0, 'no', ',lara_croftlara_croftlara_croftgrazziano_fagundes'),
+(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_wet_asphalt.png', 3, 2, 'no', ',grazziano_fagundes,grazziano_fagundes_1grazziano_fagundes_1grazziano_fagundes_1'),
+(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_red.png', 4, 4, 'no', ',grazziano_fagundes,'),
+(5, 'Claire', 'Redfield', 'claire_redfield', 'claire@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-22', 'assets/images/profile_pics/defaults/head_carrot.png', 1, 0, 'no', ','),
+(6, 'Bart', 'Simpson', 'bart_simpson', 'bart@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-23', 'assets/images/profile_pics/defaults/head_pomegranate.png', 1, 0, 'no', ',');
 
 --
 -- Índices para tabelas despejadas
@@ -150,6 +176,12 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 -- Índices para tabela `comments`
 --
 ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `friend_request`
+--
+ALTER TABLE `friend_request`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -181,22 +213,28 @@ ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT de tabela `friend_request`
+--
+ALTER TABLE `friend_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
