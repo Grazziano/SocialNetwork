@@ -10,14 +10,21 @@ if (isset($_GET['profile_username'])) {
 }
 ?>
 
+<style>
+    .wrapper {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+</style>
+
 <div class="profile_left">
     <img src="<?php echo $user_array['profile_pic']; ?>" alt="">
 
-    <duv class="profile_info">
+    <div class="profile_info">
         <p><?php echo "Posts: " . $user_array['num_posts'] ?></p>
         <p><?php echo "Likes: " . $user_array['num_likes'] ?></p>
         <p><?php echo "Friends: " . $num_friends ?></p>
-    </duv>
+    </div>
 </div>
 
 <div class="main_column column">
