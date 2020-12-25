@@ -98,6 +98,12 @@ class Post
                         $count++;
                     }
 
+                    if ($userLoggedIn == $added_by) {
+                        $delete_button = "<button class='delete_button btn btn-danger' id='post$id'>X</button>";
+                    } else {
+                        $delete_button = "";
+                    }
+
                     $user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
                     $user_row = mysqli_fetch_array($user_details_query);
                     $first_name = $user_row['first_name'];
@@ -121,7 +127,7 @@ class Post
 
                         }
                     </script>
-<?php
+                <?php
                     $comments_check = mysqli_query($this->con, "SELECT * FROM comments WHERE post_id='$id'");
                     $comments_check_num = mysqli_num_rows($comments_check);
 
@@ -181,7 +187,8 @@ class Post
 								</div>
 
 								<div class='posted_by' style='color:#ACACAC;'>
-									<a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+                                    <a href='$added_by'> $first_name $last_name </a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;$time_message
+                                    $delete_button
 								</div>
 								<div id='post_body'>
 									$body
@@ -200,8 +207,29 @@ class Post
 								<iframe src='comment_frame.php?post_id=$id' id='comment_iframe' frameborder='0'></iframe>
 							</div>
 							<hr>";
-                } //End while loop
-            }
+                }
+                ?>
+                <script>
+                    $(document).ready(function() {
+
+                        $('$post<?php echo $id; ?>').on('click', function() {
+                            bootbox.confirm("Are you sure you want to delete this post?", function(result) {
+                                $.post("includes/form_handlers/delete_post.php?post_id=<?php $id; ?>", {
+                                    result: result
+                                });
+
+                                if (result) {
+                                    location.reload();
+                                }
+
+                            });
+                        });
+
+                    });
+                </script>
+<?php
+
+            } //End while loop
 
             if ($count > $limit)
                 $str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
@@ -213,3 +241,4 @@ class Post
         echo $str;
     }
 }
+?>
