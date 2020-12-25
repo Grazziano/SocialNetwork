@@ -5,10 +5,10 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "includes/handelers/ajax_submit_profile_post.php",
+            url: "includes/handlers/ajax_submit_profile_post.php",
             data: $('form.profile_post').serialize(),
             success: function (msg) {
-                $('#post_form').modal(hide);
+                $('#post_form').modal('hide');
                 location.reload();
             },
             error: function () {
