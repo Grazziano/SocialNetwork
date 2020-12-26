@@ -68,11 +68,10 @@ if (isset($_POST['response_request'])) {
 
 </div>
 
-<div class="main_column column">
+<div class="profile_main_column column">
 
-    <?php
-    echo $username;
-    ?>
+    <div class="posts_area"></div>
+    <img id="loading" src="assets/images/icons/loading.gif">
 
 </div>
 

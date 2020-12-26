@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'Bellota-LighItalic';
-    src: url("../fonts/Bellota-LightItalic.otf");
+    font-family: 'Bellota-LightItalic';
+    src: url('../fonts/Bellota-LightItalic.otf');
 }
 
 @font-face {
     font-family: 'Bellota-BoldItalic';
-    src: url("../fonts/Bellota-BoldItalic.otf");
+    src: url('../fonts/Bellota-BoldItalic.otf');
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: #337AB7;
+    color: #20AAE5;
     text-decoration: none;
 }
 
@@ -33,10 +33,10 @@ a {
 .logo a {
     font-family: 'Bellota-BoldItalic', sans-serif;
     margin-left: 10px;
-    font-size: 30px;
+    font-size: 30;
     position: relative;
     top: 9px;
-    text-shadow: #73B6E2 0.5px 0.5px 0;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
     color: #1086BA;
 }
 
@@ -78,6 +78,8 @@ nav a:hover {
     border: 1px solid #D3D3D3;
     border-radius: 5px;
     box-shadow: 2px 2px 1px #D3D3D3;
+    z-index: -1;
+    color: #555;
 }
 
 .user_details {
@@ -86,23 +88,23 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-.user_details_left_right {
-    width: 125px;
-    display: inline-block;
-    position: absolute;
-}
-
 .user_details img {
-    height: 125px;
+    height: 120px;
     border-radius: 5px;
     margin-right: 5px;
+}
+
+.user_details_left_right {
+    width: 120px;
+    display: inline-table;
+    position: absolute;
 }
 
 .main_column {
     float: right;
     width: 70%;
     z-index: -1;
-    min-height: 160px;
+    min-height: 170px;
 }
 
 .post_form {
@@ -131,7 +133,7 @@ textarea:focus {
     background-color: #3498db;
     font-family: 'Bellota-BoldItalic', sans-serif;
     color: #1E75CA;
-    text-shadow: #73B6E2 0.5px 0.5px 0;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
     font-size: 90%;
     position: absolute;
     outline: 0;
@@ -194,8 +196,7 @@ textarea:focus {
     margin-top: 3px;
     position: absolute;
     font-family: 'Bellota-BoldItalic', sans-serif;
-    color: #1E75CA;
-    text-shadow: #73B6E2 0.5px 0.5px 0;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
 }
 
 .newsfeedPostOptions {
@@ -215,7 +216,7 @@ textarea:focus {
     background-color: transparent;
     border: none;
     font-size: 14px;
-    color: #3498DB;
+    color: #3498db;
     padding: 0;
     height: auto;
     width: auto;
@@ -251,7 +252,7 @@ textarea:focus {
 
 .profile_info {
     display: list-item;
-    background-color: #2980B9;
+    background-color: #2980b9;
     width: 100%;
     padding: 10px 0 10px 0;
 }
@@ -262,36 +263,36 @@ textarea:focus {
 }
 
 .danger {
-    background-color: #E74C3C;
+    background-color: #e74c3c;
 }
 
 .warning {
-    background-color: #F0AD4E;
+    background-color: #f0ad4e;
 }
 
 .default {
-    background-color: #BDC3C7;
+    background-color: #bdc3c7;
 }
 
 .success {
-    background-color: #2ECC71;
+    background-color: #2ecc71;
 }
 
 .info {
-    background-color: #3498DB;
+    background-color: #3498db;
 }
 
 .deep_blue {
-    background-color: #0043F0;
+    background-color: #0043f0;
 }
 
-.profile_left input[type='submit'] {
+.profile_left input[type="submit"] {
     width: 90%;
     height: 30px;
     border-radius: 5px;
     margin: 7px 0 0 7px;
     border: none;
-    color: #FFF;
+    color: #fff;
 }
 
 #accept_button {
@@ -300,8 +301,8 @@ textarea:focus {
     border-radius: 5px;
     margin: 5px;
     border: none;
-    color: #FFF;
-    background-color: #2ECC71;
+    color: #fff;
+    background-color: #2ecc71;
 }
 
 #ignore_button {
@@ -310,8 +311,8 @@ textarea:focus {
     border-radius: 5px;
     margin: 5px;
     border: none;
-    color: #FFF;
-    background-color: #E74C3C;
+    color: #fff;
+    background-color: #e74c3c;
 }
 
 .delete_button {
@@ -322,4 +323,11 @@ textarea:focus {
     border-radius: 4px;
     right: -15px;
     position: relative;
+}
+
+.profile_main_column {
+    min-width: 675px;
+    float: left;
+    width: 70%;
+    z-index: -1;
 }
