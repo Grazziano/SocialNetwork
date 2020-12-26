@@ -24,11 +24,14 @@ if (isset($_SESSION['username'])) {
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/bootbox.min.js"></script>
     <script src="assets/js/swirlFeed.js"></script>
+    <script src="assets/js/jquery.Jcrop.js"></script>
+    <script src="assets/js/jcrop_bits.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css">
 
 </head>
 
