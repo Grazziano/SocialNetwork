@@ -99,7 +99,7 @@ class Post
                     }
 
                     if ($userLoggedIn == $added_by) {
-                        $delete_button = "<button class='delete_button btn btn-danger' id='post$id'>X</button>";
+                        $delete_button = "<button class='delete_button btn-danger' id='post$id'>X</button>";
                     } else {
                         $delete_button = "";
                     }
@@ -212,9 +212,9 @@ class Post
                 <script>
                     $(document).ready(function() {
 
-                        $('$post<?php echo $id; ?>').on('click', function() {
+                        $('#post<?php echo $id; ?>').on('click', function() {
                             bootbox.confirm("Are you sure you want to delete this post?", function(result) {
-                                $.post("includes/form_handlers/delete_post.php?post_id=<?php $id; ?>", {
+                                $.post("includes/form_handlers/delete_post.php?post_id=<?php echo $id; ?>", {
                                     result: result
                                 });
 
@@ -235,7 +235,7 @@ class Post
                 $str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
 							<input type='hidden' class='noMorePosts' value='false'>";
             else
-                $str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: centre;'> No more posts to show! </p>";
+                $str .= "<input type='hidden' class='noMorePosts' value='true'><p style='text-align: center;'> No more posts to show! </p>";
         }
 
         echo $str;
