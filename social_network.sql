@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Dez-2020 às 04:15
+-- Tempo de geração: 27-Dez-2020 às 14:47
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -89,7 +89,13 @@ INSERT INTO `likes` (`id`, `username`, `post_id`) VALUES
 (8, 'grazziano_fagundes', 13),
 (9, 'grazziano_fagundes', 14),
 (10, 'homer_simpson', 23),
-(11, 'lara_croft', 24);
+(11, 'lara_croft', 24),
+(12, 'grazziano_fagundes', 22),
+(13, 'grazziano_fagundes', 24),
+(14, 'grazziano_fagundes', 21),
+(15, 'grazziano_fagundes', 20),
+(16, 'grazziano_fagundes', 19),
+(17, 'grazziano_fagundes', 17);
 
 -- --------------------------------------------------------
 
@@ -107,6 +113,14 @@ CREATE TABLE `messages` (
   `viewed` varchar(3) NOT NULL,
   `deleted` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `messages`
+--
+
+INSERT INTO `messages` (`id`, `user_to`, `user_from`, `body`, `date`, `opened`, `viewed`, `deleted`) VALUES
+(1, 'jill_valentine', 'grazziano_fagundes', 'Hey Jill!', '2020-12-27 10:47:15', 'no', 'no', 'no'),
+(2, 'jill_valentine', 'grazziano_fagundes', 'Hello!', '2020-12-27 10:47:40', 'no', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -146,14 +160,14 @@ INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_cl
 (14, 'Quem é programador deixa o like!', 'grazziano_fagundes', 'none', '2020-12-01 22:19:32', 'no', 'no', 1),
 (15, 'Quem aqui é do RS?', 'grazziano_fagundes', 'none', '2020-12-01 22:28:11', 'no', 'no', 1),
 (16, 'Olá sou nova aqui!', 'claire_redfield', 'none', '2020-12-22 21:42:53', 'no', 'no', 0),
-(17, 'Cheguei!!!', 'bart_simpson', 'none', '2020-12-23 19:49:17', 'no', 'no', 0),
+(17, 'Cheguei!!!', 'bart_simpson', 'none', '2020-12-23 19:49:17', 'no', 'no', 1),
 (18, 'Hi !', 'grazziano_fagundes', 'lara_croft', '2020-12-25 00:18:09', 'no', 'yes', 0),
-(19, 'Quer ser meu amigo!', 'jill_valentine', 'grazziano_fagundes', '2020-12-25 00:19:55', 'no', 'no', 0),
-(20, 'Hi Jill!', 'grazziano_fagundes', 'jill_valentine', '2020-12-25 00:20:46', 'no', 'no', 0),
-(21, 'Merry Christmas!', 'jill_valentine', 'none', '2020-12-25 00:21:51', 'no', 'no', 0),
-(22, 'Merry Christmas!', 'grazziano_fagundes', 'none', '2020-12-25 00:23:45', 'no', 'no', 0),
+(19, 'Quer ser meu amigo!', 'jill_valentine', 'grazziano_fagundes', '2020-12-25 00:19:55', 'no', 'no', 1),
+(20, 'Hi Jill!', 'grazziano_fagundes', 'jill_valentine', '2020-12-25 00:20:46', 'no', 'no', 1),
+(21, 'Merry Christmas!', 'jill_valentine', 'none', '2020-12-25 00:21:51', 'no', 'no', 1),
+(22, 'Merry Christmas!', 'grazziano_fagundes', 'none', '2020-12-25 00:23:45', 'no', 'no', 1),
 (23, 'Hello!', 'homer_simpson', 'none', '2020-12-26 18:47:54', 'no', 'no', 1),
-(24, 'Happy new year!', 'lara_croft', 'grazziano_fagundes', '2020-12-26 23:26:52', 'no', 'no', 1);
+(24, 'Happy new year!', 'lara_croft', 'grazziano_fagundes', '2020-12-26 23:26:52', 'no', 'no', 2);
 
 -- --------------------------------------------------------
 
@@ -181,12 +195,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
-(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/grazziano_fagundes1b5f9b6d2cb9fd8798c8c884cc836257n.jpeg', 9, 4, 'no', ',lara_croft,grazziano_fagundes_1,jill_valentine,bart_simpson,homer_simpson'),
+(1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/grazziano_fagundes1b5f9b6d2cb9fd8798c8c884cc836257n.jpeg', 9, 6, 'no', ',lara_croft,grazziano_fagundes_1,jill_valentine,bart_simpson,homer_simpson'),
 (2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/defaults/head_pomegranate.png', 2, 0, 'no', ',lara_croftlara_croftlara_croftgrazziano_fagundes'),
-(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/lara_croftebb708b86c692b40820f24fa3c39d5ccn.jpeg', 4, 3, 'no', ',grazziano_fagundes,grazziano_fagundes_1grazziano_fagundes_1grazziano_fagundes_1'),
-(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/jill_valentine60a2b71c20330376a2ede139e0c45a68n.jpeg', 6, 4, 'no', ',grazziano_fagundesgrazziano_fagundesgrazziano_fagundesbart_simpson'),
+(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/lara_croftebb708b86c692b40820f24fa3c39d5ccn.jpeg', 4, 4, 'no', ',grazziano_fagundes,grazziano_fagundes_1grazziano_fagundes_1grazziano_fagundes_1'),
+(4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/jill_valentine60a2b71c20330376a2ede139e0c45a68n.jpeg', 6, 6, 'no', ',grazziano_fagundesgrazziano_fagundesgrazziano_fagundesbart_simpson'),
 (5, 'Claire', 'Redfield', 'claire_redfield', 'claire@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-22', 'assets/images/profile_pics/defaults/head_carrot.png', 1, 0, 'no', ','),
-(6, 'Bart', 'Simpson', 'bart_simpson', 'bart@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-23', 'assets/images/profile_pics/bart_simpson523d124b2f747f2a62fab8ad06c96a3cn.jpeg', 1, 0, 'no', ',grazziano_fagundes,jill_valentine'),
+(6, 'Bart', 'Simpson', 'bart_simpson', 'bart@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-23', 'assets/images/profile_pics/bart_simpson523d124b2f747f2a62fab8ad06c96a3cn.jpeg', 1, 1, 'no', ',grazziano_fagundes,jill_valentine'),
 (7, 'Homer', 'Simpson', 'homer_simpson', 'homer@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-24', 'assets/images/profile_pics/homer_simpson0df3c02a1b1c7905dfbfd433aae59530n.jpeg', 1, 1, 'no', ',grazziano_fagundes');
 
 --
@@ -249,13 +263,13 @@ ALTER TABLE `friend_request`
 -- AUTO_INCREMENT de tabela `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
