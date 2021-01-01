@@ -78,8 +78,40 @@ if (isset($_POST['response_request'])) {
 
 <div class="profile_main_column column">
 
-    <div class="posts_area"></div>
-    <img id="loading" src="assets/images/icons/loading.gif">
+    <ul class="nav nav-tabs" role="tablist" id="profiletabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div role="tabpanel" class="tab-pane fade in active" id="newsfeed_div">
+
+            <div class="posts_area"></div>
+            <img id="loading" src="assets/images/icons/loading.gif">
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade in active" id="about_div">
+
+            <div class="posts_area"></div>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade in active" id="messages_div">
+
+            <div class="posts_area"></div>
+
+        </div>
+
+    </div>
 
 </div>
 
