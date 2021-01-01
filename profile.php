@@ -79,12 +79,10 @@ if (isset($_POST['response_request'])) {
 <div class="profile_main_column column">
 
     <ul class="nav nav-tabs" role="tablist" id="profiletabs">
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link active" aria-current="page" href="#newsfeed_div" aria-controls="newsfeed_div" role="tab" data-toggle="tab">Newsfeed</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#about_div" aria-controls="about_div" role="tab" data-toggle="tab">About</a>
-        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="#messages_div" aria-controls="messages_div" role="tab" data-toggle="tab">Messages</a>
         </li>
@@ -99,15 +97,30 @@ if (isset($_POST['response_request'])) {
 
         </div>
 
-        <div role="tabpanel" class="tab-pane fade in active" id="about_div">
-
-            <div class="posts_area"></div>
-
-        </div>
-
         <div role="tabpanel" class="tab-pane fade in active" id="messages_div">
 
-            <div class="posts_area"></div>
+            <?php
+            $message_obj = new Message($con, $userLoggedIn);
+
+            echo "<h4>You and <a href='" . $username . "'>" . $profile_user_obj->getFirstAndLastName() . "</a></h4>";
+            echo "<div class='loaded_messages' id='scroll_messages'>";
+            echo $message_obj->getMessages($username);
+            echo "</div>";
+            ?>
+
+            <div class="message_post">
+                <form action="" method="post">
+
+                    <textarea name='message_body' id='message_textarea' placeholder='Write your message ...'></textarea>
+                    <input type='submit' name='post_message' class='info' id='message_submit' value='Send'>
+
+                </form>
+            </div>
+
+            <script>
+                var div = document.getElementById("scroll_messages");
+                div.scrollTop = div.scrollHeight;
+            </script>
 
         </div>
 
