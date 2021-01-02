@@ -44,12 +44,16 @@ if (isset($_SESSION['username'])) {
         <nav>
             <a href="<?php echo $userLoggedIn ?>"><?php echo $user['first_name'] ?></i></a>
             <a href="index.php"><i class="fas fa-home fa-lg"></i></a>
-            <a href=""><i class="fas fa-envelope fa-lg"></i></a>
+            <a href="javascript:void(0);" onclick="getDropdownData(<?php echo $userLoggedIn; ?>, 'message')"><i class="fas fa-envelope fa-lg"></i></a>
             <a href=""><i class="fas fa-bell fa-lg"></i></a>
             <a href="requests.php"><i class="fas fa-users fa-lg"></i></a>
             <a href=""><i class="fas fa-cog fa-lg"></i></a>
             <a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </nav>
+
+        <div class="dropdown_data_window">
+            <input type="hidden" id="dropdown_data_type" value="">
+        </div>
     </div>
 
     <div class="wrapper">
