@@ -51,7 +51,7 @@ if (isset($_SESSION['username'])) {
             <a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt fa-lg"></i></a>
         </nav>
 
-        <div class="dropdown_data_window">
+        <div class="dropdown_data_window" style="height: 0px; border: none;">
             <input type="hidden" id="dropdown_data_type" value="">
         </div>
     </div>
