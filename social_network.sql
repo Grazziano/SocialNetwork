@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jan-2021 às 02:45
+-- Tempo de geração: 16-Jan-2021 às 02:02
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.3
 
@@ -70,19 +70,12 @@ CREATE TABLE `friend_request` (
 --
 
 INSERT INTO `friend_request` (`id`, `user_to`, `user_from`) VALUES
-(1, 'lara_croft', 'homer_simpson'),
-(2, 'lara_croft', 'claire_redfield'),
-(3, 'jill_valentine', 'claire_redfield'),
-(4, 'claire_redfield', 'grazziano_fagundes_1'),
-(5, 'jill_valentine', 'grazziano_fagundes_1'),
-(6, 'lara_croft', 'grazziano_fagundes_1'),
-(7, 'lara_croft', 'cloud_strife'),
-(8, 'bart_simpson', 'cloud_strife'),
-(9, 'lara_croft', 'chun_li'),
-(10, 'jill_valentine', 'chun_li'),
-(11, 'lara_croft', 'geralt_rivia'),
-(12, 'chun_li', 'geralt_rivia'),
-(13, 'homer_simpson', 'geralt_rivia');
+(12, 'jill_valentine', 'claire_redfield'),
+(14, 'claire_redfield', 'grazziano_fagundes_1'),
+(15, 'jill_valentine', 'grazziano_fagundes_1'),
+(19, 'bart_simpson', 'cloud_strife'),
+(22, 'jill_valentine', 'chun_li'),
+(25, 'chun_li', 'geralt_rivia');
 
 -- --------------------------------------------------------
 
@@ -142,23 +135,46 @@ INSERT INTO `messages` (`id`, `user_to`, `user_from`, `body`, `date`, `opened`, 
 (2, 'jill_valentine', 'grazziano_fagundes', 'Hello!', '2020-12-27 10:47:40', 'yes', 'no', 'no'),
 (3, 'grazziano_fagundes', 'jill_valentine', 'Hi!', '2020-12-27 23:11:38', 'yes', 'yes', 'no'),
 (4, 'jill_valentine', 'grazziano_fagundes', 'Hi!', '2020-12-27 23:12:07', 'yes', 'no', 'no'),
-(5, 'lara_croft', 'grazziano_fagundes', 'Hello!', '2020-12-31 20:36:07', 'no', 'no', 'no'),
+(5, 'lara_croft', 'grazziano_fagundes', 'Hello!', '2020-12-31 20:36:07', 'yes', 'yes', 'no'),
 (6, 'bart_simpson', 'grazziano_fagundes', 'HI!', '2020-12-31 20:38:06', 'yes', 'yes', 'no'),
 (7, 'bart_simpson', 'grazziano_fagundes', 'HI!', '2020-12-31 20:40:35', 'yes', 'yes', 'no'),
-(8, 'lara_croft', 'grazziano_fagundes', 'Happy new Year!', '2020-12-31 20:44:45', 'no', 'no', 'no'),
-(9, 'lara_croft', 'grazziano_fagundes', 'Hi there!', '2020-12-31 23:05:31', 'no', 'no', 'no'),
+(8, 'lara_croft', 'grazziano_fagundes', 'Happy new Year!', '2020-12-31 20:44:45', 'yes', 'yes', 'no'),
+(9, 'lara_croft', 'grazziano_fagundes', 'Hi there!', '2020-12-31 23:05:31', 'yes', 'yes', 'no'),
 (10, 'grazziano_fagundes', 'claire_redfield', 'Hi!', '2021-01-02 22:05:12', 'yes', 'yes', 'no'),
-(11, 'claire_redfield', 'grazziano_fagundes', 'Hello!', '2021-01-02 22:23:02', 'no', 'no', 'no'),
+(11, 'claire_redfield', 'grazziano_fagundes', 'Hello!', '2021-01-02 22:23:02', 'yes', 'no', 'no'),
 (12, 'grazziano_fagundes', 'homer_simpson', 'Happy 2021!', '2021-01-02 22:23:59', 'yes', 'yes', 'no'),
 (13, 'grazziano_fagundes', 'homer_simpson', 'Happy new year!', '2021-01-02 22:24:21', 'yes', 'yes', 'no'),
-(14, 'grazziano_fagundes', 'bart_simpson', 'Hello! How are you?', '2021-01-02 22:24:50', 'no', 'yes', 'no'),
-(15, 'grazziano_fagundes', 'bart_simpson', 'Happy new year!', '2021-01-02 22:25:07', 'no', 'yes', 'no'),
+(14, 'grazziano_fagundes', 'bart_simpson', 'Hello! How are you?', '2021-01-02 22:24:50', 'yes', 'yes', 'no'),
+(15, 'grazziano_fagundes', 'bart_simpson', 'Happy new year!', '2021-01-02 22:25:07', 'yes', 'yes', 'no'),
 (16, 'grazziano_fagundes', 'grazziano_fagundes_1', 'Hello!', '2021-01-02 22:26:46', 'yes', 'yes', 'no'),
 (17, 'grazziano_fagundes', 'grazziano_fagundes_1', 'How are you?', '2021-01-02 22:27:11', 'yes', 'yes', 'no'),
-(18, 'grazziano_fagundes', 'cloud_strife', 'Good night.', '2021-01-02 22:32:48', 'no', 'yes', 'no'),
+(18, 'grazziano_fagundes', 'cloud_strife', 'Good night.', '2021-01-02 22:32:48', 'yes', 'yes', 'no'),
 (19, 'grazziano_fagundes', 'chun_li', 'Hello how are you', '2021-01-02 22:35:19', 'yes', 'yes', 'no'),
 (20, 'grazziano_fagundes', 'chun_li', 'We could see each other tonight.', '2021-01-02 22:36:08', 'yes', 'yes', 'no'),
-(21, 'grazziano_fagundes', 'geralt_rivia', 'Hello', '2021-01-02 22:37:54', 'yes', 'yes', 'no');
+(21, 'grazziano_fagundes', 'geralt_rivia', 'Hello', '2021-01-02 22:37:54', 'yes', 'yes', 'no'),
+(22, 'grazziano_fagundes', 'claire_redfield', 'How are you?', '2021-01-15 21:41:11', 'no', 'yes', 'no'),
+(23, 'lara_croft', 'grazziano_fagundes', 'Hello', '2021-01-15 21:47:44', 'yes', 'yes', 'no'),
+(24, 'lara_croft', 'grazziano_fagundes', 'Hello', '2021-01-15 21:47:50', 'yes', 'yes', 'no'),
+(25, 'grazziano_fagundes', 'lara_croft', 'Hi! How are you?', '2021-01-15 21:55:46', 'no', 'no', 'no'),
+(26, 'homer_simpson', 'lara_croft', 'Hi Homer!', '2021-01-15 21:57:32', 'no', 'no', 'no'),
+(27, 'grazziano_fagundes', 'homer_simpson', 'Happy 2021!', '2021-01-15 21:58:58', 'no', 'no', 'no');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_to` varchar(50) NOT NULL,
+  `user_from` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `link` varchar(100) NOT NULL,
+  `datetime` datetime NOT NULL,
+  `opened` varchar(3) NOT NULL,
+  `viewed` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -234,15 +250,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES
 (1, 'Grazziano', 'Fagundes', 'grazziano_fagundes', 'grazzianofagundes@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/grazziano_fagundes1b5f9b6d2cb9fd8798c8c884cc836257n.jpeg', 9, 6, 'no', ',lara_croft,grazziano_fagundes_1,jill_valentine,bart_simpson,homer_simpsonclaire_redfield,cloud_strife,chun_li,geralt_rivia,claire_redfield,cloud_strife,chun_li,geralt_rivia,'),
-(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/grazziano_fagundes_1893a524e5599a86bb4dbeabcbc481d55n.jpeg', 2, 0, 'no', ',lara_croftlara_croftlara_croft,grazziano_fagundes'),
-(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/lara_croftebb708b86c692b40820f24fa3c39d5ccn.jpeg', 4, 4, 'no', ',grazziano_fagundes,grazziano_fagundes_1'),
+(2, 'Grazziano', 'Fagundes', 'grazziano_fagundes_1', 'grazziano.fagundes@outlook.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/grazziano_fagundes_1893a524e5599a86bb4dbeabcbc481d55n.jpeg', 2, 0, 'no', ',lara_croftlara_croftlara_croft,grazziano_fagundeslara_croft,'),
+(3, 'Lara', 'Croft', 'lara_croft', 'lara@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/lara_croftebb708b86c692b40820f24fa3c39d5ccn.jpeg', 4, 4, 'no', ',grazziano_fagundes,grazziano_fagundes_1,homer_simpson,grazziano_fagundes_1,claire_redfield,chun_li,cloud_strife,geralt_rivia,'),
 (4, 'Jill', 'Valentine', 'jill_valentine', 'jill@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-11-26', 'assets/images/profile_pics/jill_valentine60a2b71c20330376a2ede139e0c45a68n.jpeg', 6, 6, 'no', ',grazziano_fagundesgrazziano_fagundesgrazziano_fagundes,bart_simpson'),
-(5, 'Claire', 'Redfield', 'claire_redfield', 'claire@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-22', 'assets/images/profile_pics/claire_redfieldeff24eadb01bca32d7086cc399f2ee45n.jpeg', 1, 0, 'no', ',homer_simpsongrazziano_fagundes,grazziano_fagundes,'),
+(5, 'Claire', 'Redfield', 'claire_redfield', 'claire@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-22', 'assets/images/profile_pics/claire_redfieldeff24eadb01bca32d7086cc399f2ee45n.jpeg', 1, 0, 'no', ',homer_simpsongrazziano_fagundes,grazziano_fagundes,lara_croft,'),
 (6, 'Bart', 'Simpson', 'bart_simpson', 'bart@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-23', 'assets/images/profile_pics/bart_simpson523d124b2f747f2a62fab8ad06c96a3cn.jpeg', 1, 1, 'no', ',grazziano_fagundes,jill_valentine'),
-(7, 'Homer', 'Simpson', 'homer_simpson', 'homer@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-24', 'assets/images/profile_pics/homer_simpson0df3c02a1b1c7905dfbfd433aae59530n.jpeg', 1, 1, 'no', ',grazziano_fagundes,claire_redfield'),
-(8, 'Geralt', 'Rivia', 'geralt_rivia', 'geralt_the_rivia@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/geralt_rivia0510ca16019c9fa979786f1086de9de7n.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,'),
-(9, 'Chun', 'Li', 'chun_li', 'chunli@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/chun_li810422d5a8b7cb0c85a34450386f2f5bn.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,'),
-(10, 'Cloud', 'Strife', 'cloud_strife', 'cloud_strife@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/cloud_strifeff27aa80af883eff0b5d8829d5b57ac7n.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,');
+(7, 'Homer', 'Simpson', 'homer_simpson', 'homer@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-24', 'assets/images/profile_pics/homer_simpson0df3c02a1b1c7905dfbfd433aae59530n.jpeg', 1, 1, 'no', ',grazziano_fagundes,claire_redfield,lara_croft,geralt_rivia,'),
+(8, 'Geralt', 'Rivia', 'geralt_rivia', 'geralt_the_rivia@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/geralt_rivia0510ca16019c9fa979786f1086de9de7n.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,lara_croft,homer_simpson,'),
+(9, 'Chun', 'Li', 'chun_li', 'chunli@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/chun_li810422d5a8b7cb0c85a34450386f2f5bn.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,lara_croft,'),
+(10, 'Cloud', 'Strife', 'cloud_strife', 'cloud_strife@mail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-01-02', 'assets/images/profile_pics/cloud_strifeff27aa80af883eff0b5d8829d5b57ac7n.jpeg', 0, 0, 'no', ',grazziano_fagundes,grazziano_fagundes,lara_croft,');
 
 --
 -- Índices para tabelas despejadas
@@ -270,6 +286,12 @@ ALTER TABLE `likes`
 -- Índices para tabela `messages`
 --
 ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `notifications`
+--
+ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -310,7 +332,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT de tabela `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT de tabela `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
