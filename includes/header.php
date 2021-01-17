@@ -44,8 +44,13 @@ if (isset($_SESSION['username'])) {
         </div>
         <nav>
             <?php
+            # Unread messages
             $messages = new Message($con, $userLoggedIn);
             $num_messages = $messages->getUnreadNumber();
+
+            # Unread notifications
+            $notifications = new Notification($con, $userLoggedIn);
+            $num_notifications = $notifications->getUnreadNumber();
             ?>
             <a href="<?php echo $userLoggedIn ?>"><?php echo $user['first_name'] ?></i></a>
             <a href="index.php"><i class="fas fa-home fa-lg"></i></a>
@@ -57,7 +62,14 @@ if (isset($_SESSION['username'])) {
                 }
                 ?>
             </a>
-            <a href=""><i class="fas fa-bell fa-lg"></i></a>
+            <a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'notification')">
+                <i class="fas fa-bell fa-lg"></i>
+                <?php
+                if ($num_notifications > 0) {
+                    echo "<span class='notification_badge' id='unread_notification'>" . $num_notifications . "</span>";
+                }
+                ?>
+            </a>
             <a href="requests.php"><i class="fas fa-users fa-lg"></i></a>
             <a href=""><i class="fas fa-cog fa-lg"></i></a>
             <a href="includes/handlers/logout.php"><i class="fas fa-sign-out-alt fa-lg"></i></a>
