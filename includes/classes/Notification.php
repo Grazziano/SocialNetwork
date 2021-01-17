@@ -31,7 +31,7 @@ class Notification
             case 'like':
                 $message = $userLoggedName . " liked your post";
                 break;
-            case 'profile':
+            case 'profile_post':
                 $message = $userLoggedName . " posted on your profile";
                 break;
             case 'comment_non_owner':
