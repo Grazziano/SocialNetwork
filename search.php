@@ -64,7 +64,25 @@ if (isset($_GET['type'])) {
 
                 // Button forms
             }
-        }
+            echo "<div class='search_result'>
+                    <div class='searchPageFriendButtons'>
+                        <form action='' method='POST'>
+                        " . $button . "
+                        <br>
+                        </form>
+                    </div>
+
+                    <div class='result_profile_pic'>
+                        <a href='" . $row['username'] . "'><img src='" . $row['profile_pic'] . "' style='height:100px;'></a>
+                    </div>
+                    <a href='" . $row['username'] . "'>" . $row['first_name'] . " " . $row['last_name'] . "
+                        <p id='grey'>" . $row['username'] . "</p>
+                    </a>
+                    <br>
+                    " . $mutual_friends . "<br>
+                 </div>
+                 <hr>";
+        } #End While
     }
     ?>
 </div>
