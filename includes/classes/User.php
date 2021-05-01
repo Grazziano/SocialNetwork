@@ -81,7 +81,7 @@ class User
 	public function didReceiveRequest($user_from)
 	{
 		$user_to = $this->user['username'];
-		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$user_to' AND user_from='$user_from'");
+		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_request WHERE user_to='$user_to' AND user_from='$user_from'");
 		if (mysqli_num_rows($check_request_query) > 0) {
 			return true;
 		} else {
@@ -92,7 +92,7 @@ class User
 	public function didSendRequest($user_to)
 	{
 		$user_from = $this->user['username'];
-		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$user_to' AND user_from='$user_from'");
+		$check_request_query = mysqli_query($this->con, "SELECT * FROM friend_request WHERE user_to='$user_to' AND user_from='$user_from'");
 		if (mysqli_num_rows($check_request_query) > 0) {
 			return true;
 		} else {
