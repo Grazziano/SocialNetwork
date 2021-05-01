@@ -15,6 +15,7 @@ include("includes/header.php");
         First Name: <input type="text" name="first_name" value="<?php echo $user['first_name'] ?>"><br>
         Last Name: <input type="text" name="last_name" value="<?php echo $user['last_name'] ?>"><br>
         E-mail: <input type="mail" name="email" value="<?php echo $user['email'] ?>"><br>
+        <input type="submit" name="update_details" id="save_details" value="Update Details">
     </form>
 
     <h4>Change Password</h4>
@@ -22,6 +23,7 @@ include("includes/header.php");
         Old Password: <input type="password" name="old_password"><br>
         New Password: <input type="password" name="new_password_1"><br>
         New Password Again: <input type="password" name="new_password_2"><br>
+        <input type="submit" name="update_password" id="save_password" value="Update Password">
     </form>
 
     <h4>Close Account</h4>
