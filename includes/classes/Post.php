@@ -99,6 +99,30 @@ class Post
 
 			if (strpos($no_punctuation, "height") === false && strpos($no_punctuation, "width") === false && strpos($no_punctuation, "http") === false) {
 				$no_punctuation = preg_split("/[\s,]+/", $no_punctuation);
+
+				foreach ($stopWords as $value) {
+					foreach ($no_punctuation as $key => $value2) {
+						if (strtolower($value) == strtolower($value2)) {
+							$no_punctuation[$key] = "";
+						}
+					}
+				}
+
+				foreach ($no_punctuation as $value) {
+					$this->calculateTrend(ucfirst($value));
+				}
+			}
+		}
+	}
+
+	public function calculateTrend($term)
+	{
+		if ($term != "") {
+			$query = mysqli_query($this->con, "SELECT * FROM trends WHERE title = '$term'");
+			if (mysqli_num_rows($query) == 0) {
+				$insert_query = mysqli_query($this->con, "INSERT INTO trends(title, hits) VALUES ('$term', '1')");
+			} else {
+				$insert_query = mysqli_query($this->con, "UPDATE trends SET hits=hits+1 WHERE title = '$term'");
 			}
 		}
 	}
