@@ -24,7 +24,8 @@ class Post
 
 			foreach ($body_array as $key => $value) {
 				if (strpos($value, "www.youtube.com/watch?v=") !== false) {
-					$value = preg_replace("!watch\?v=!", "embed/", $value);
+					$link = preg_split("!&!", $value);
+					$value = preg_replace("!watch\?v=!", "embed/", $link[0]);
 					$value = "<br><iframe width=\'420\' height=\'315\' src=\'" . $value . "\'></iframe><br>";
 					$body_array[$key] = $value;
 				}
