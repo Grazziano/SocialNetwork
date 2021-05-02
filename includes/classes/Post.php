@@ -10,7 +10,7 @@ class Post
 		$this->user_obj = new User($con, $user);
 	}
 
-	public function submitPost($body, $user_to)
+	public function submitPost($body, $user_to, $imageName)
 	{
 		$date_added = date("Y-m-d H:i:s");
 		$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', 'sda', 'asdfsd', 'asdfsdaf', '$date_added', 'no', 'no', '0')");
@@ -44,7 +44,7 @@ class Post
 			}
 
 			//insert post 
-			$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0')");
+			$query = mysqli_query($this->con, "INSERT INTO posts VALUES('', '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0', '$imageName')");
 			$returned_id = mysqli_insert_id($this->con);
 
 			//Insert notification

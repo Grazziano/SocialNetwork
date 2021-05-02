@@ -1,4 +1,12 @@
 <?php
+/*
+ini_set('display_errors',1);
+ini_set('display_startup_erros',1);
+error_reporting(E_ALL);
+*/
+error_reporting(0);
+ini_set("display_errors", 0);
+
 require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
