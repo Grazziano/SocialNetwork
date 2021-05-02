@@ -1,4 +1,8 @@
 <?php
+error_reporting( 0 );  # esconde os erros
+// error_reporting( E_ALL );  # mostra todos os erros
+// error_reporting( E_ALL ^E_NOTICE ); # mostra todos os erros menos notice
+
 ob_start(); # Turns on output buffering
 session_start();
 
