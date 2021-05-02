@@ -2,9 +2,10 @@
 include("includes/header.php");
 
 if (isset($_POST['post'])) {
+
     $uploadOk = 1;
-    $imageName = $_FILES['filesToUpload']['name'];
-    $error_message = "";
+    $imageName = $_FILES['fileToUpload']['name'];
+    $errorMessage = "";
 
     if ($imageName != "") {
         $targetDir = "assets/images/posts/";
@@ -12,28 +13,33 @@ if (isset($_POST['post'])) {
         $imageFileType = pathinfo($imageName, PATHINFO_EXTENSION);
 
         if ($_FILES['fileToUpload']['size'] > 10000000) {
-            $error_message = "Sorry your file is to large!";
+            $errorMessage = "Sorry your file is too large";
             $uploadOk = 0;
         }
 
         if (strtolower($imageFileType) != "jpeg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpg") {
-            $error_message = "Sorry, only jpeg, jpg and png files are allowed!";
+            $errorMessage = "Sorry, only jpeg, jpg and png files are allowed";
             $uploadOk = 0;
         }
 
         if ($uploadOk) {
+
             if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $imageName)) {
-                // image uploaded okay
+                //image uploaded okay
             } else {
-                // image did no upload
+                //image did not upload
                 $uploadOk = 0;
             }
         }
     }
 
-    if ($uploadOk == 1) {
+    if ($uploadOk) {
         $post = new Post($con, $userLoggedIn);
         $post->submitPost($_POST['post_text'], 'none', $imageName);
+    } else {
+        echo "<div style='text-align:center;' class='alert alert-danger'>
+				$errorMessage
+			</div>";
     }
 
     // $post = new Post($con, $userLoggedIn);
@@ -61,7 +67,7 @@ if (isset($_POST['post'])) {
 
 <div class="main_column column">
 
-    <form class="post_form" action="index.php" method="post">
+    <form class="post_form" action="index.php" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
         <textarea name="post_text" id="post_text" placeholder="Got something to say?"></textarea>
         <input type="submit" name="post" id="post_button" value="Post">
